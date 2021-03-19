@@ -1,0 +1,17 @@
+{% extends 'menu/layout.html' %}
+{% load static %}
+
+<div>
+    {% block title %}
+        <div class="home-content wrapper">
+            <h2 class="page-title">新規登録</h2>
+            <form action="{% url 'signup' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="button" type="submit" value="登録">
+            </form>
+        </div>
+
+    {% endblock %}
+</div>
+    

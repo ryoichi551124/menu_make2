@@ -1,0 +1,46 @@
+{% extends 'menu/layout.html' %}
+{% load static %}
+
+<div>
+    {% block title %}
+        <div class="home-content wrapper">
+            <h2 class="page-title">今日の献立</h2>
+        </div>
+    {% endblock %}
+</div>
+
+<div id="showloading">
+    <img src="{% static 'menu/images/loading.gif' alt="loading">
+</div>
+
+
+<div class="content">
+    {% block content %}
+        <div class="wrapper grid result-grid">
+            <div class="item next-item">
+                <a href="{{ main_url}}"><img class="main_img result-main-img" src="{{ main_image }}" alt="主菜"></a>
+                <h4><a class="predict-h4" href="{{ main_url }}">主菜レシピページ</a></h4>
+                <a href="{{ main_url }}"><p>{{ main_url }}</p></a>
+                <h4><a class="predict-h4" href="{{ main_url }}">{{ main_name }}</a></h4>
+                <p>{{ main_description }}</p>
+            </div>
+            <div class="item next-item">
+                <a href="{{ sub_url }}"><img class="main_img result-img" src="{{ sub_image }}" alt="副菜">
+                <h4><a class="predict-h4" href="{{ sub_url }}">副菜レシピページ</a></h4>
+                <a href="{{ sub_url }}"><p>{{ sub_url }}</p></a>
+                <h4><a class="predict-h4" href="{{ sub_url }}">{{ sub_name }}</a></h4>
+                <p>{{ sub_description }}</p>
+            </div>
+            <div class="item next-item">
+                <a href="{{ soup_url }}"><img class="main_img result-img" src="{{ soup_image }}" alt="汁物"></a>
+                <h4><a class="predict-h4" href="{{ soup_url }}">汁物レシピページ</a></h4>
+                <a href="{{ soup_url }}"><p>{{ soup_url }}</p></a>
+                <h4><a class="predict-h4" href="{{ soup_url }}">{{ soup_name }}</a></h4>
+                <p>{{ soup_description }}</p>
+            </div>
+        </div>
+        
+    {% endblock %}
+</div>
+
+
