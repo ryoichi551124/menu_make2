@@ -62,12 +62,14 @@ def predict(request):
                  mainNum=main_num, subNum=sub_num, soupNum=soup_num, judge=True)
     test.save()
 
+    print('soup_name', params['soup_name'])
 
     #汁物ありとなしで表示の切り替え
     if params['soup_name'] != 'なし':
         return render(request, 'menu/result.html', params)
     elif params['soup_name'] == 'なし':
         return render(request, 'menu/result_nosoup.html', params)
+
 
 #他の組み合わせの表示
 def next_predict(request):
@@ -87,13 +89,14 @@ def next_predict(request):
     obj.judge = False
     obj.save()
 
-    #モデルテスト
+    #保存したモデルの情報を取得
     sub_name_list = Test.objects.filter(name=user_name).values('sub_list').last()
     sub_name_list = sub_name_list['sub_list'].replace("[", '').replace("]", '').split(', ')
     sub_name_list = [int(s) for s in sub_name_list]
     soup_name_list = Test.objects.filter(name=user_name).values('soup_list').last()
     soup_name_list = soup_name_list['soup_list'].replace("[", '').replace("]", '').split(', ')
     soup_name_list = [float(s) for s in soup_name_list]
+
 
     #予測した組み合わせの次のデータを取得
     count += 1
@@ -109,11 +112,12 @@ def next_predict(request):
                  mainNum=main_num, subNum=sub_num, soupNum=soup_num, judge=True)
     test.save()
 
-    #汁物がありかなしか
+    #汁物がありかなしで表示の切り替え
     if params['soup_name'] != 'なし':
         return render(request, 'menu/result.html', params)
     elif params['soup_name'] == 'なし':
         return render(request, 'menu/result_nosoup.html', params)
+
 
 #決定したモデルの表示
 def decision(request):
@@ -132,7 +136,8 @@ def decision(request):
     soup_name_list = Test.objects.filter(name=user_name).values('soup_list').last()
     soup_name_list = soup_name_list['soup_list'].replace("[", '').replace("]", '').split(', ')
     soup_name_list = [float(s) for s in soup_name_list]
-    params = method.recipe_info(main_num, sub_name_list, soup_name_list, count)
+    decision_count = request.POST['count']
+    params = method.recipe_info(main_num, sub_name_list, soup_name_list, decision_count)
 
     #組み合わせの判定にTrueを設定
     okChoice_id = Test.objects.filter(name=user_name).last().id

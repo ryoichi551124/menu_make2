@@ -26,8 +26,9 @@
             </div>
         </div>
 
-        <form class="home-content" action="{% url 'decision' %}">
+        <form class="home-content" action="{% url 'decision' %}" method='post'>
             {% csrf_token %}
+            <input type='hidden' name='count' value='{{count}}'>
             <button type="submit" class="ai-button top">決定</button>
         </form>
         

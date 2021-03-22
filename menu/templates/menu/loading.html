@@ -11,14 +11,9 @@
 
 <div class="content">
     {% block content %}
-    <!--
+        <div class="loading-content">
             {% if user.is_authenticated %}
-                <h2 class="username">{{ user.username }} さんのデータに最適化中です。</h2>
-            {% endif %}
-    -->
-        <div>
-            {% if user.is_authenticated %}
-            <h3 class="next-h3">{{ user.username }} さんのデータを学習しています。</h3>
+            <h3 class="next-h3 loading-h3">{{ user.username }} さんのデータの学習中。</h3>
             {% endif %}
             <h3 class="next-h3">少々お待ちください...</h3>
         </div>
@@ -39,6 +34,6 @@
             }
             startTest();
         
-          </script>
+        </script>
     {% endblock %}
 </div>

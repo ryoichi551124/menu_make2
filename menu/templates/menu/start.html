@@ -21,7 +21,7 @@
 
 <div class="content">
     {% block content %}
-            <form class="home-content" action="{% url 'start' %}" method='get'>
+            <form class="home-content start-button" action="{% url 'start' %}" method='get'>
                 {% csrf_token %}
                 <button type="submit" class="button">スタート</button>
             </form>

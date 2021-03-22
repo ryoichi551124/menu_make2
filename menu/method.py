@@ -242,6 +242,7 @@ def menu_predict(main_num):
 def recipe_info(main_num, sub_name_list, soup_name_list, count):
     #main_numをstr型からint型へ変換
     main_num = int(main_num)
+    count = int(count)
 
     #主菜情報
     main_image = main[main_num]['foodImageUrl']
@@ -283,6 +284,7 @@ def recipe_info(main_num, sub_name_list, soup_name_list, count):
         'soup_image': soup_image,
         'soup_description': soup_description,
         'soup_url': soup_url,
+        'count': count,
     }
     return params
 
