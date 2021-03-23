@@ -38,7 +38,11 @@ WEBアプリ
       https://colab.research.google.com/drive/1J3xK23hYKfyY8g-DzAH5AFifyLNlFV41?usp=sharing
       
 AIモデル作成
-- 
+- LightGBM
+- MeCab(形態素解析）
+- google colaboratory
+  - データ前処理①　　
+  - データ前処理④　　https://colab.research.google.com/drive/19QTDg5GvlKD5GPC_5xV32FcQQtUf5s56?usp=sharing
 
 
 
