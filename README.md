@@ -11,10 +11,19 @@
 - 登録ユーザーごとの学習機能
 
 ### 技術一覧
+アプリ
+- Anaconda仮想環境
 - python 3.8.2
-- numpy==1.19.4
 - django==3.0.4
-- lightgbm==2.2.3
+- SQLight(django default)
+- GCP
+  - GCE
+    - os Ubuntu 18.0.4LTS
+    - Nginx
+    - gunicorn
+  - VPCネットワーク
+
+
 
 
 
