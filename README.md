@@ -11,7 +11,7 @@
 - 登録ユーザーごとの学習機能
 
 ### 技術一覧
-アプリ
+WEBアプリ
 - Anaconda仮想環境
 - python 3.8.2
 - django==3.0.4
@@ -23,6 +23,10 @@
     - gunicorn
   - VPCネットワーク
 
+データ取得
+- rakuten recipe API
+
+      https://webservice.rakuten.co.jp/api/recipecategorylist/
 
 
 
