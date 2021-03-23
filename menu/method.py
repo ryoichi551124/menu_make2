@@ -102,7 +102,7 @@ def next_choice(main_num):
     return params
 
 #レシピの組み合わせを予測
-def menu_predict(main_num):
+def make_train(main_num):
     main_num = int(main_num)
     sub_num_list = []
     soup_num_list = []
@@ -167,6 +167,8 @@ def menu_predict(main_num):
         f.flush()
         fcntl.flock(f.fileno(), fcntl.LOCK_UN)
 
+def menu_predict(main_num):
+    main_num = int(main_num)
     #train.csvをpandasで読み込む
     train = pd.read_csv('train.csv', index_col=0)
     sub_df = pd.read_csv('rakuten_sub.csv', index_col=0)      
@@ -291,7 +293,6 @@ def recipe_info(main_num, sub_name_list, soup_name_list, count):
 
 
 
-
 ######################################################################################################
 ######################                   ユーザー別の処理                    ############################
 ######################################################################################################
@@ -306,8 +307,8 @@ def model_make(train):
     print('二値化', time.time() - t_1)
 
     #特徴量の追加
-    train = features.features(train)
-    print('特徴量の追加', time.time() - t_1)
+    #train = features.features(train)
+    #print('特徴量の追加', time.time() - t_1)
 
     #リセットインデックス
     train.reset_index(drop=True, inplace=True)
@@ -451,7 +452,7 @@ def user_model_predict(user_name):
     train_origin = train.copy(deep=True)
 
     #特徴量の追加
-    train = features.features(train)
+    #train = features.features(train)
 
     train.drop(['ID', '主菜', '副菜', '汁物', '主菜ID', '採用/不採用'], axis=1, inplace=True)
 
@@ -486,4 +487,7 @@ def user_model_predict(user_name):
     }
     return params
 
-#######################################################################################################
+###################################################################################################
+
+
+

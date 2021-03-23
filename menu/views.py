@@ -32,10 +32,13 @@ def predict(request):
     if request.user.username:
         user_name = request.user.username
         if Test.objects.filter(name=user_name).last():
+            method.make_train(main_num)
             params = method.user_model_predict(user_name)
         else:
+            method.make_train(main_num)
             params = method.menu_predict(main_num)   
     else:
+        method.make_train(main_num)
         params = method.menu_predict(main_num)
 
     #副菜と汁物のリストを取得
