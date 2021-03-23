@@ -41,8 +41,16 @@ AIモデル作成
 - LightGBM
 - MeCab(形態素解析）
 - google colaboratory
-  - データ前処理①　　
+  - データ前処理①　　https://colab.research.google.com/drive/1afCGmKPDGi8tcES_xkSGVurUvRucNBFS?usp=sharing
+  - データ前処理②   https://colab.research.google.com/drive/1LqiluQ59SRFTZbz9A9d5JwGeXctakLSm?usp=sharing
+  - データ前処理③   https://colab.research.google.com/drive/1-sFifkQd1nN9UVxJV2uXQc3XUQofCDFx?usp=sharing
   - データ前処理④　　https://colab.research.google.com/drive/19QTDg5GvlKD5GPC_5xV32FcQQtUf5s56?usp=sharing
+
+  - モデル作成①    https://colab.research.google.com/drive/1fulISoXtKXcRWKEigNhdsxpkoSLpAVyc?usp=sharing
+  - モデル作成②    https://colab.research.google.com/drive/1YRGeQSSZOY3ueVdQNWvm0WMdAoPgfRMI?usp=sharing
+  - モデル作成③    https://colab.research.google.com/drive/19xqJyd5j5VM8hfDkWwEw9QYZrFdKA-Ui?usp=sharing
+
+
 
 
 
