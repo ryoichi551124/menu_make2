@@ -8,6 +8,8 @@
 
 ![スクリーンショット 2021-03-23 10 14 13](https://user-images.githubusercontent.com/60164700/112081723-786b9000-8bc7-11eb-80a8-d80adad86b3f.png)
 
+![スクリーンショット 2021-03-23 10 17 22](https://user-images.githubusercontent.com/60164700/112081784-989b4f00-8bc7-11eb-9482-5312e30abcc1.png)
+
 
 
 ## 機能一覧
