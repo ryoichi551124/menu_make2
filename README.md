@@ -17,8 +17,8 @@
 - LightGBMを使用したAIモデルの実装
 - 登録ユーザーごとの学習機能
 
-### 技術一覧
-WEBアプリ
+## 技術一覧
+### WEBアプリ
 - Anaconda仮想環境
 - python 3.8.2
 - django==3.0.4
@@ -30,7 +30,7 @@ WEBアプリ
     - gunicorn
   - VPCネットワーク
 
-データ取得
+### データ取得
 - rakuten recipe API
 
       https://webservice.rakuten.co.jp/api/recipecategorylist/
@@ -41,7 +41,7 @@ WEBアプリ
       
       https://colab.research.google.com/drive/1J3xK23hYKfyY8g-DzAH5AFifyLNlFV41?usp=sharing
       
-AIモデル作成
+### AIモデル作成
 - LightGBM
 - MeCab(形態素解析）
 - google colaboratory
