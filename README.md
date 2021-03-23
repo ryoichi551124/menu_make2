@@ -1,12 +1,15 @@
 # 献立提案AIアプリ
 
 ### ユーザーが選んだ主菜から、それに合う副菜と汁物を提案するAIアプリです。
+
+ユーザー登録なしでもご利用頂けます。
+
 ## http://35.193.231.227/menu/
 
 
 
 ## 機能一覧
-- 認証機能（ゲスト or 新規登録)
+- ユーザー登録、ログイン機能、ゲストログイン
 - LightGBMを使用したAIモデルの実装
 - 登録ユーザーごとの学習機能
 
@@ -27,6 +30,15 @@ WEBアプリ
 - rakuten recipe API
 
       https://webservice.rakuten.co.jp/api/recipecategorylist/
+      
+      https://webservice.rakuten.co.jp/api/recipecategoryranking/
+      
+      データ取得コード(google colaboratory)
+      
+      https://colab.research.google.com/drive/1J3xK23hYKfyY8g-DzAH5AFifyLNlFV41?usp=sharing
+      
+AIモデル作成
+- 
 
 
 
