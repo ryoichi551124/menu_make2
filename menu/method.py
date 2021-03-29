@@ -262,7 +262,7 @@ def recipe_info(main_num, sub_name_list, soup_name_list, count):
             sub_url = sub[i]['recipeUrl']
 
     #汁物情報
-    for i in range(len(soup)):
+    for i in range(len(soup)-1):
         if float(soup[i]['recipeId']) == soup_name_list[count]:    
             soup_num = i
             soup_name = soup[i]['recipeTitle']
