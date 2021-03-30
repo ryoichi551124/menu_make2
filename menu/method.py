@@ -245,6 +245,7 @@ def recipe_info(main_num, sub_name_list, soup_name_list, count):
     #main_numをstr型からint型へ変換
     main_num = int(main_num)
     count = int(count)
+    soup_num = 0
 
     #主菜情報
     main_image = main[main_num]['foodImageUrl']
@@ -269,6 +270,13 @@ def recipe_info(main_num, sub_name_list, soup_name_list, count):
             soup_image = soup[i]['foodImageUrl']
             soup_description = soup[i]['recipeDescription']
             soup_url = soup[i]['recipeUrl']
+        else:
+            soup_last = len(soup)-1
+            soup_num = soup_last
+            soup_name = soup[soup_last]['recipeTitle']
+            soup_image = soup[soup_last]['foodImageUrl']
+            soup_description = soup[soup_last]['recipeDescription']
+            soup_url = soup[soup_last]['recipeUrl']
 
     params = {
         'main_num': main_num,
