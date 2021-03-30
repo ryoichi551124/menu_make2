@@ -262,6 +262,13 @@ def recipe_info(main_num, sub_name_list, soup_name_list, count):
             sub_description = sub[i]['recipeDescription']
             sub_url = sub[i]['recipeUrl']
 
+    soup_last = len(soup)-1
+    soup_num = soup_last
+    soup_name = soup[soup_last]['recipeTitle']
+    soup_image = soup[soup_last]['foodImageUrl']
+    soup_description = soup[soup_last]['recipeDescription']
+    soup_url = soup[soup_last]['recipeUrl']
+
     #汁物情報
     for i in range(len(soup)-1):
         if float(soup[i]['recipeId']) == soup_name_list[count]:    
@@ -270,13 +277,6 @@ def recipe_info(main_num, sub_name_list, soup_name_list, count):
             soup_image = soup[i]['foodImageUrl']
             soup_description = soup[i]['recipeDescription']
             soup_url = soup[i]['recipeUrl']
-        else:
-            soup_last = len(soup)-1
-            soup_num = soup_last
-            soup_name = soup[soup_last]['recipeTitle']
-            soup_image = soup[soup_last]['foodImageUrl']
-            soup_description = soup[soup_last]['recipeDescription']
-            soup_url = soup[soup_last]['recipeUrl']
 
     params = {
         'main_num': main_num,
