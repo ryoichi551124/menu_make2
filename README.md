@@ -36,13 +36,13 @@
 - rakuten recipe API
 
       https://webservice.rakuten.co.jp/api/recipecategorylist/
-      
+
       https://webservice.rakuten.co.jp/api/recipecategoryranking/
-      
+
       データ取得コード(google colaboratory)
-      
+
       https://colab.research.google.com/drive/1J3xK23hYKfyY8g-DzAH5AFifyLNlFV41?usp=sharing
-      
+
 ### AIモデル作成
 - LightGBM
 - MeCab(形態素解析）
@@ -57,20 +57,111 @@
 
 
 
+## 献立提案AIアプリ　デプロイ手順
+
+---
+
+## linuxサーバーにSSH接続
+- anacondaインストーラーの取得
+`wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh`
+
+- パッケージのアップデート
+`sudo apt update`
+
+- anacondaのインストール
+`bash Anaconda3-2022.10-Linux~ (途中でタブ補完) `
+(yes ２回（2回目はデフォルトで no になっているので注意)
+
+- bashファイルにanacondaのパスの設定
+`source ~/.bashrc`
+
+- 仮想環境の作成
+`conda create -n 仮想環境名 python=3.9.?`
+(当時はインストーラーpython3.7.2)
+
+- 仮想環境に入る
+`conda activate 仮想環境名`
+`which python` で python の確認
+
+- anacondaインストーラーの削除
+`rm Anaconda3-2022.10-Linux~ (途中でタブ補完)`
+
+- Githubからクローンする
+`git clone https://github.com~`
+cdコマンドでアプリフォルダへ移動
+
+- パッケージのインストール
+`pip install -r requirements.txt`
+- 確認
+`pip list`
+
+- nginxのインストール
+`sudo apt-get install nginx`
+
+- nginx の動作確認
+`ps aux | grep nginx`
+
+- gunicorn の確認
+`which gunicorn`
+
+- gunicorn の手動接続
+`gunicorn アプリフォルダ名.wsgi —bind=0.0.0.0:8000`
+
+- gunicorn の自動化設定
+`sudo vi /etc/systemd/system/gunicorn.service`
+- ユーザー名の確認
+`echo $USER`
+
+gunicorn.serviceのファイル記述
+```
+[Unit]
+Description=gunicorn daemon
+After=network.target
+[Service]
+User=ユーザー名
+Group=ユーザー名
+WorkingDirectory=/home/ユーザー名/menu_make
+ExecStart=/home/ユーザー名/anaconda3/envs/menu_make/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/puducerk/menu_make/menu_make.sock menu_make.wsgi:application
+[Install]
+WantedBy=multi-user.target
+```
 
 
+-- gunicorn を動作させる
+`sudo systemctl start gunicorn`
 
+- gunicorn の動作確認
+`ps aux | grep gunicorn`
 
+- シンボリックリンクの設定
+`sudo systemctl enable gunicorn`
 
+- nginx の設定
+`sudo vi /etc/nginx/sites-available/conf`
 
+confファイルの記述
+```
+server {
+        server_name IPアドレス;
+        location / {
+                include proxy_params;
+                proxy_pass http://unix:/home/ユーザー名/menu_make/menu_make.sock;
+                }
+        location /static {
+                root /home/ユーザー名/menu_make;
+        }
+}
+```
 
+- シンボリックリンクの設定
+`sudo ln -s  /etc/nginx/sites-available/conf /etc/nginx/sites-enabled/`
 
+-  nginx の再起動
+`sudo systemctl restart nginx`
 
+- 各種サーバーの動作確認
+`ps aux | grep nginx`
+`ps aux | grep gunicorn`
 
-
-
-
-
-
-
-
+<web での動作確認>
+`http://IPアドレス/menu`
